@@ -1,1 +1,16 @@
 fungi-finders-assets-and-designs-final/
+
+# macOS
+.DS_Store
+.AppleDouble
+.Spotlight-V100
+.Trashes
+.Dumpster
+._*
+
+# Icon files
+Icon
+Icon?
+
+# macOS Tags
+*.DS_Store
