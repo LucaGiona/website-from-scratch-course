@@ -31,8 +31,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
-
-    color: red;
+    
     }
 
     body {
@@ -180,9 +179,46 @@ a:hover,
 a:focus-visible {
     color: red;
 }
-/* end of root - end of base */
+img {
+    border-radius: var(--border-radius-3);
+}
+
+/* ANCHOR  end of root - end of base */
 }
     } 
+
+@layer layout{
+   .section{
+    padding-block: 3.75rem;
+
+    @media (width > 720px) {
+        padding-block: 8rem;
+
+        &[data-padding="compact"]{
+            padding-block: 4.5rem;
+        }
+
+    }
+   }
+
+    .wrapper {
+        --wrapper-max-width: 1130px;
+
+        max-width: var(--wrapper-max-width);
+        margin-inline: auto; /*doesnt touch top and bottom */
+        padding-inline: 1rem;
+        box-sizing: content-box;  /*if you take out things from figma it is recommended*/
+          /*& = placeholder of wrapper --- could be placed outside of the currly brackets  */
+
+        &[data-width="narrow"] {
+            --wrapper-max-width: 720px
+        }
+
+        &[data-width="wide"]{
+            --wrapper-max-width: 1130px;
+        }
+    }
+}
 
  /* making links more accessible 
  for screenreaders*/
@@ -197,6 +233,67 @@ a:focus-visible {
     white-space: nowrap;
     width: 1px;
   }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-main {
+    color: var(--text-main)
+  }
+  .text-high-contrast {
+    color: var(--text-high-contrast)
+  }
+  .text-brand {
+    color: var(--text-brand)
+  }
+  
+ .text-brand-light {
+    color: var(--text-brand-light)
+  }
+
+  .section-title {
+    font-size: var(--font-size-heading-regular);
+  }
+  
+  .background-accent-light {
+    background-color: var(--background-accent-light)
+  }
+  .background-accent-main {
+    background-color: var(--background-accent-main)
+  }
+  
+   .background-accent-dark {
+    background-color: var(--background-accent-dark)
+  }
+ 
+   .background-extra-light {
+    background-color: var(--background-extra-light)
+  }
+
+   .background-light {
+    background-color: var(--background-light)
+  }
+    .background-main {
+    background-color: var(--background-main)
+  }
+   .background-dark {
+    background-color: var(--background-dark)
+  }
+   .background-extra-dark {
+    background-color: var(--background-extra-dark)
+  }
+  .font-size-sm {
+    font-size: var(--font-size-sm);
+  }
+  .font-size-regular {
+    font-size: var(--font-size-regular);
+  }
+  .font-size-md {
+    font-size: var(--font-size-md);
+  }
+  .font-size-lg {
+    font-size: var(--font-size-lg);
+  }
+        
 }
-
-
