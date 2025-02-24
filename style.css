@@ -187,7 +187,34 @@ img {
 }
     } 
 
-@layer layout{
+@layer layout{  
+
+    .flow > * + * {
+        margin-top: var(--flow-spacer, 1rem);
+    }
+
+    .grid-flow {
+        display: grid;
+        gap: var(--grid-flow-gap, 1rem)
+    }
+
+    .equal-columns{
+        display: grid;
+        gap: var(--equal-columns-gap, 1rem);
+        align-items: var(--equal-columns-vertical-alignment, stretch);
+
+        @media (width > 760px) {
+            grid-auto-flow: column;
+            grid-auto-columns: 1fr;
+        }
+
+    &[data-gap="large"]{
+            --equal-columns-gap: 2rem;
+        }
+    &[data-alignment="centered"]{
+        --equal-columns-vertical-alignmen: center;
+    }
+    }
    .section{
     padding-block: 3.75rem;
 
@@ -220,6 +247,108 @@ img {
     }
 }
 
+
+@layer components {
+    .hero {
+        text-align: center;
+        font-size: var(--font-size-md);
+        color: var(--text-high-contrast);
+        background-image: url(/fungi-finders-assets-and-designs-final/assets/hero.webp);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .hero__title{
+        font-size: var(--font-size-heading-lg);
+        
+        span {
+            font-size: var(--font-size-heading-xl);
+            color: var(--text-brand);
+            display: block;
+        }
+    }
+
+    .card {
+        display: grid;
+        gap: var(--card-gap, 1rem);
+        padding: 1rem;
+        background-color: var(--background-light);
+        border-radius: var(--border-radius-3);
+
+
+        img {
+            border-radius: var(--border-radius-2);
+        }
+    }
+    .card__title {
+        font-size: var(--card-title-fz, var(--font-size-heading-sm));
+        color: var(--card-title-color, var(--text-brand))
+    }
+    .site-header{
+        padding-block: 1rem;
+    }
+    .site-header__inner {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: .5rem 1rem;
+    }
+    .primary-navigation {
+        ul {
+            display: flex;
+            gap: .5rem 1rem;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+        a{
+            text-decoration:none;
+        }
+    }
+    .site-footer {
+        text-align: center;
+        background-color: var(--background-dark);
+        border: pink solid 2px;
+        
+        padding-block: 2rem;
+        display: grid;
+        gap: 2rem;
+
+        a {
+            color: var(--text-main);
+        }
+        a:hover,
+        a:focus-visible {
+            color: var(--text-brand-light);
+        }
+    }
+
+    .site-footer__title{
+        font-size: var(--font-size-lg);
+        font-family: var(--ff-heading);
+        font-weight: 700;
+    }
+    .button {
+        display: inline-flex;
+        padding: .5rem 1rem;
+        margin-top: 1rem;
+        background-color: var(--background-accent-main);
+        font-family: var(--ff-heading);
+        font-weight: 700;
+        font-size: var(--font-size-md);
+
+        text-decoration: none;
+        cursor: pointer;
+
+        border-radius: var(--border-radius-2);
+    }
+
+    .button:hover,
+    .button:focus-visible{
+
+        color: var(--text-high-contrast);
+        background-color: var(--background-accent-light);
+    }
+}
  /* making links more accessible 
  for screenreaders*/
 
