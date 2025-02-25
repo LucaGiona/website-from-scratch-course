@@ -189,6 +189,12 @@ img {
 
 @layer layout{  
 
+    .flexgroup {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .6rem;
+    }
+
     .flow > * + * {
         margin-top: var(--flow-spacer, 1rem);
     }
@@ -293,8 +299,15 @@ img {
         }
     }
 
+    .mushroom-guide {
+        --card-title-fz: var(--font-size-lg);
+        --card-title-color: rgb(232, 121, 176);
+        --card-gap: .75rem;
+    }
+
     .card {
-        display: grid;
+        display: flex;
+        flex-direction: column;
         gap: var(--card-gap, 1rem);
         padding: 1rem;
         background-color: var(--background-light);
@@ -309,6 +322,47 @@ img {
         font-size: var(--card-title-fz, var(--font-size-heading-sm));
         color: var(--card-title-color, var(--text-brand))
     }
+
+    .card__note{
+        background-color: var(--background-extra-light);
+        /* makes margin from top so all teext is equally on the bottom */
+        margin-block-start: auto;
+        padding: .75rem;
+        border-radius: var(--border-radius-2);
+    }
+    .tag-list{
+        display: flex;
+        flex-wrap: wrap;
+        gap: .8rem;
+        /* background-color: pink; */
+        li {
+            padding: 0rem .5rem;
+            background-color: var(--tag-bg, red);
+
+            font-family: var(--ff-heading);
+            font-size: var(--font-size-sm);
+            color: var(--text-high-contrast);
+
+            border-radius: var(--border-radius-1);
+        } 
+        [data-edible="edible"]{
+            --tag-bg: var(--background-accent-main) ;
+        }
+        [data-edible="toxic"]{
+            --tag-bg: var(--clr-red-500) ;
+        }
+        [data-season="summer"]{
+            --tag-bg: var(--background-accent-main) ;
+        }
+        [data-season="spring"]{
+            --tag-bg: var(--clr-teal-500) ;
+        }
+        [data-season="fall"]{
+            --tag-bg: var(--clr-orange-500) ;
+        }
+    }
+
+   
     .site-header{
         padding-block: 1rem;
     }
@@ -319,21 +373,21 @@ img {
         gap: .5rem 1rem;
     }
 
-[aria-controls="primary-nav"] {
-    z-index: 100;
-    background: transparent;
-    cursor: pointer;
-    border: 0;
+    [aria-controls="primary-nav"] {
+        z-index: 100;
+        background: transparent;
+        cursor: pointer;
+        border: 0;
 
-    img {
-        border-radius: 0;
+        img {
+            border-radius: 0;
+        }
     }
-}
 
-/* makes dispaear burger constantly */
-[aria-controls="primary-nav"] {
-    display: none;
-}
+    /* makes dispaear burger constantly */
+    [aria-controls="primary-nav"] {
+        display: none;
+    }
 
      .primary-navigation {
         ul {
@@ -431,6 +485,14 @@ img {
 
         color: var(--text-high-contrast);
         background-color: var(--background-accent-light);
+    }
+
+    select {
+        padding: .5rem 2rem;
+        background-color: var(--background-accent-main);
+        color: var(--text-high-contrast);
+        border: 0;
+        border-radius: var(--border-radius-2);
     }
 }
  /* making links more accessible 
