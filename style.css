@@ -305,6 +305,11 @@ img {
     }
 }
 
+/* makes dispaear burger constantly */
+[aria-controls="primary-nav"] {
+    display: none;
+}
+
      .primary-navigation {
         ul {
             display: flex;
@@ -316,11 +321,16 @@ img {
             text-decoration:none;
         }
 
+        [aria-controls="primary-nav"]{
+            display: none;
+        }
+
         @media ( width < 760px) {
             background-color: var(--background-accent-main);
             padding: 2rem;
             border-bottom-left-radius: var(--border-radius-3);
 
+            display: none;
             position: absolute;
             z-index: 10;
             top: 0;
@@ -341,6 +351,16 @@ img {
                 padding-block-start: 1.5rem;
                 border-top: 3px solid var(--background-accent-light);
             }
+        }
+    }
+    
+/* here outside of the primary-navigation (it would be possible to nest */
+    @media (width < 760px){
+        [aria-controls="primary-nav"] {
+            display: block;
+        } 
+        [aria-expanded="true"] + .primary-navigation{
+            display: block;
         }
     }
     .site-footer {
