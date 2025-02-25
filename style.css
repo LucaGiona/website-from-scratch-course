@@ -249,6 +249,24 @@ img {
 
 
 @layer components {
+    .skip-to-main:not(:focus) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+
+  }
+/* styles need to styled when focus is seen */
+  .skip-to-main{
+    position: absolute;
+    background: var(--background-accent-main);
+    padding: 1rem;
+    border-radius: var(--border-radius-2);
+    color: var(--text-high-contrast);
+  }
     .hero {
         text-align: center;
         font-size: var(--font-size-md);
