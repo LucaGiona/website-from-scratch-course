@@ -153,6 +153,8 @@
     html {
     font-family: var(--ff-body);
     line-height: 1.6;
+
+    scroll-behavior: smooth;
 }
 
 body {
@@ -204,7 +206,7 @@ img {
         gap: var(--grid-flow-gap, 1rem)
     }
 
-    .grid-auto-fit {
+    .grid-auto-fill {
         --auto-fit-min-col-size: 250px;
         display: grid;
         gap: 1rem;
@@ -562,6 +564,10 @@ img {
  for screenreaders*/
 
 @layer utilities {
+    [hidden] {
+        display: none;
+    }
+
   .visually-hidden {
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
