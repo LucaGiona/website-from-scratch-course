@@ -76,7 +76,7 @@ This project is licensed under the **MIT License** – see `LICENSE.md` for deta
 ---
 
 ## 🌐 **Live Demo**  
-🚀 **Visit the live version on Netlify:** [strong-strudel-26181c.netlify.app](https://strong-strudel-26181c.netlify.app)
+🚀 **Visit the live version on Netlify:** [(https://coursefrontendmaster-kevin.netlify.app/](https://coursefrontendmaster-kevin.netlify.app/)
 
 ---
 
