@@ -3,7 +3,7 @@ const cards = document.querySelectorAll(".mushroom-guide .card");
 
 const seasonalFilter = document.querySelector("#season");
 const edibleFilter = document.querySelector("#edible");
-const noResultsMessaage = document.querySelector(".no-matches")
+const noResultsMessaage = document.querySelector(".no-matches");
 
 // console.log(seasonalFilter, edibleFilter)
 
@@ -11,6 +11,11 @@ const currentFilters = {
   season: "all",
   edible: "all",
 };
+
+cards.forEach((card, index) => {
+  const mushroomId = `mushroom-${index + 1}`;
+  card.style.viewTranistionName = `mushroom-card-${mushroomId}`
+})
 
 // seasonalFilter.addEventListener("change", (event) => {
 //     //console.log(event.target.value)
@@ -27,7 +32,11 @@ function updateFilter(e) {
   currentFilters[filterType] = e.target.value;
 
   //console.log(currentFilters)
-  filterCards();
+  // fading cards on transition
+  if (!document.startViewTransition()) {
+    filterCards();
+  }
+  document.startViewTransition(() => filterCards())
 }
 
 function filterCards() {
@@ -44,15 +53,14 @@ function filterCards() {
 
     if ((matchesEdible || currentFilters.edible === "all") && (matchesSeason || currentFilters.season === "all")) {
       card.hidden = false;
-      hasVisibleCards = true
+      hasVisibleCards = true;
     } else {
       card.hidden = true;
     }
     if (hasVisibleCards) {
       noResultsMessaage.hidden = true;
     } else {
-      noResultsMessaage.hidden = false
+      noResultsMessaage.hidden = false;
     }
-    
   });
 }

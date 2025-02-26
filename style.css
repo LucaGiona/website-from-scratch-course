@@ -1,3 +1,11 @@
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-group(root){
+    animation-duration: 3s;
+}
+
 @layer reset {
     *,
     *::before,
@@ -83,6 +91,14 @@
   --clr-green-400: hsl(143, 19%, 49%);
   --clr-green-500: hsl(143, 38%, 37%);
   --clr-green-600: hsl(145, 29%, 19%);
+
+  /* for light theme */
+  --clr-brown-100: hsl(10, 5%, 92%);
+  --clr-brown-200: hsl(9, 7%, 85%);
+  --clr-brown-300: hsl(9, 8%, 78%);
+  --clr-brown-400: hsl(0, 6%, 72%);
+
+
   --clr-brown-500: hsl(10, 5%, 25%);
   --clr-brown-600: hsl(9, 7%, 21%);
   --clr-brown-700: hsl(9, 8%, 16%);
@@ -137,6 +153,8 @@
   --border-radius-1: 0.25rem;
   --border-radius-2: 0.5rem;
   --border-radius-3: 0.75rem;
+
+
 
     
  @media (width > 760px) {
@@ -475,6 +493,11 @@ img {
             border-bottom-left-radius: var(--border-radius-3);
 
             display: none;
+            /* adding fading out */
+            /* opacity: 0;
+            transition: opacity 1s, display 1s;
+            transition-behavior: allow-discrete; */
+
             position: absolute;
             z-index: 10;
             top: 0;
